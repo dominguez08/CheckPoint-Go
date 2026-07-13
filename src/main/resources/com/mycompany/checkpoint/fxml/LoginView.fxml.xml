@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="20" style="-fx-background-color: #F4F6F9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.checkpoint.ui.controllers.LoginController">
+    <padding>
+        <Insets bottom="40" left="40" right="40" top="40" />
+    </padding>
+
+    <VBox alignment="CENTER" spacing="10" style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);" maxWidth="400">
+        <Label text="🔒 CheckPointGo" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #163A78;" />
+        <Label text="Iniciar Sesión para continuar" style="-fx-text-fill: #7F8C8D; -fx-font-size: 14;" />
+        
+        <Region prefHeight="15" />
+
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Correo Electrónico o Usuario:" style="-fx-font-weight: bold;" />
+            <TextField fx:id="txtUsuario" promptText="usuario@correo.com" prefHeight="35" />
+        </VBox>
+
+        <VBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Contraseña:" style="-fx-font-weight: bold;" />
+            <PasswordField fx:id="txtContrasena" promptText="••••••••" prefHeight="35" />
+        </VBox>
+
+        <Region prefHeight="10" />
+
+        <Button fx:id="btnIngresar" text="Ingresar" onAction="#handleLogin" maxWidth="Infinity" prefHeight="40"
+                style="-fx-background-color: #163A78; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14; -fx-cursor: hand;" />
+        
+        <Label fx:id="lblError" text="" style="-fx-text-fill: red; -fx-font-size: 12;" wrapText="true" />
+    </VBox>
+</VBox>

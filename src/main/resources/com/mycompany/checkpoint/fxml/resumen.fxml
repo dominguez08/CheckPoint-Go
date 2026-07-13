@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="20" style="-fx-background-color: #F8FAFC;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.checkpoint.ui.controllers.ResumenController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="panel-header" style="-fx-padding: 0 0 15 0; -fx-border-width: 0 0 1px 0; -fx-border-color: #E2E8F0;">
+        <VBox spacing="5">
+            <Label styleClass="label-title" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="📊 Panel de Resumen Automático" />
+            <Label styleClass="label-small" style="-fx-text-fill: #64748B;" text="Estadísticas e historial actualizándose en tiempo real." />
+        </VBox>
+        <Region HBox.hgrow="ALWAYS" />
+        <VBox alignment="CENTER_RIGHT" spacing="4">
+            <Label fx:id="lblSyncStatus" style="-fx-font-weight: bold;" text="🟢 Monitoreo Activo" />
+            <Label fx:id="lblLastSync" style="-fx-font-size: 11px; -fx-text-fill: #64748B;" text="Último evento: --:--:--" />
+        </VBox>
+    </HBox>
+
+    <HBox spacing="15">
+        <VBox fx:id="cardEntradas" onMouseClicked="#onCardEntradasClick" spacing="8" styleClass="stat-card" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1); -fx-cursor: hand;" HBox.hgrow="ALWAYS">
+            <Label styleClass="stat-label" style="-fx-text-fill: #64748B;" text="Entradas Hoy" />
+            <Label fx:id="lblEntradasNum" styleClass="stat-number" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #1E3A8A;" text="0" />
+        </VBox>
+
+        <VBox fx:id="cardSalidas" onMouseClicked="#onCardSalidasClick" spacing="8" styleClass="stat-card" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1); -fx-cursor: hand;" HBox.hgrow="ALWAYS">
+            <Label styleClass="stat-label" style="-fx-text-fill: #64748B;" text="Salidas Hoy" />
+            <Label fx:id="lblSalidasNum" styleClass="stat-number" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #0F766E;" text="0" />
+        </VBox>
+
+        <VBox fx:id="cardPresentes" onMouseClicked="#onCardPresentesClick" spacing="8" styleClass="stat-card" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1); -fx-cursor: hand;" HBox.hgrow="ALWAYS">
+            <Label styleClass="stat-label" style="-fx-text-fill: #64748B;" text="Presentes" />
+            <Label fx:id="lblPresentesNum" styleClass="stat-number" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #2563EB;" text="0" />
+        </VBox>
+
+        <VBox fx:id="cardRetrasos" onMouseClicked="#onCardRetrasosClick" spacing="8" styleClass="stat-card" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1); -fx-cursor: hand;" HBox.hgrow="ALWAYS">
+            <Label styleClass="stat-label" style="-fx-text-fill: #64748B;" text="Retrasos Hoy" />
+            <Label fx:id="lblTardanzasNum" styleClass="stat-number" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #D97706;" text="0" />
+        </VBox>
+    </HBox>
+
+    <HBox spacing="15" VBox.vgrow="ALWAYS">
+        <fx:include source="Dashboard.fxml.xml" HBox.hgrow="ALWAYS" />
+
+        <VBox prefWidth="320.0" spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1);">
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #1E293B;" text="🔔 Actividad en Tiempo Real" />
+            <ListView fx:id="listHistorialVivo" style="-fx-background-radius: 4; -fx-border-color: #E2E8F0;" VBox.vgrow="ALWAYS" />
+        </VBox>
+    </HBox>
+</VBox>

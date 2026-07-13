@@ -1,0 +1,19 @@
+# Maven
+target/
+
+# Firebase
+src/main/resources/config/firebase-config.json
+
+# VS Code
+.vscode/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# Maven descargado
+apache-maven-3.9.6/
+maven.zip

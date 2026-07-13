@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mycompany.checkpoint.ui.controllers.CameraController"
+      spacing="0" style="-fx-background-color: #000000;">
+
+    <!-- Encabezado -->
+    <HBox spacing="10" style="-fx-background-color: #163A78; -fx-padding: 10;">
+        <Label text="📷 Escanear Código QR" style="-fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold;"/>
+        <HBox HBox.hgrow="ALWAYS"/>
+        <Label fx:id="lblDetectionStatus" text="Listo" style="-fx-text-fill: #228B57; -fx-font-size: 12;"/>
+    </HBox>
+
+    <!-- Área de preview con overlay -->
+    <StackPane VBox.vgrow="ALWAYS" style="-fx-background-color: #000000; -fx-padding: 10;" alignment="CENTER">
+        <ImageView fx:id="cameraPreview" fitWidth="640" fitHeight="480" preserveRatio="true"/>
+
+        <!-- Overlay de detección -->
+        <Rectangle fx:id="detectionRect" width="300" height="300"
+                   style="-fx-stroke: #228B57; -fx-stroke-width: 3; -fx-fill: transparent;"/>
+
+        <Label text="Coloca el código QR aquí" style="-fx-text-fill: #228B57; -fx-font-size: 14;"
+               alignment="TOP_CENTER" StackPane.alignment="TOP_CENTER">
+            <padding><Insets top="50"/></padding>
+        </Label>
+    </StackPane>
+
+    <!-- Información y controles -->
+    <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #1a1a1a;">
+        <Label fx:id="lblQRData" text="Esperando código QR..."
+               style="-fx-text-fill: #ffffff; -fx-font-size: 12; -fx-font-family: 'Courier New';"/>
+        <ProgressBar fx:id="progressDetection" prefHeight="20" progress="0.0"/>
+
+        <HBox spacing="10" alignment="CENTER">
+            <Button fx:id="btnCancel" text="❌ Cancelar"
+                   style="-fx-font-size: 12; -fx-padding: 8 20; -fx-background-color: #DC3C3C; -fx-text-fill: white;"/>
+            <Label fx:id="lblDebug" text="" style="-fx-text-fill: #888888; -fx-font-size: 10;"/>
+        </HBox>
+    </VBox>
+</VBox>

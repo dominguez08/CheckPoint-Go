@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.checkpoint.ui.controllers.RegistroController" spacing="0">
+
+    <!-- Encabezado -->
+    <HBox styleClass="panel-header" spacing="10">
+        <Label text="📝 Registrar Movimiento" styleClass="label-title"/>
+        <HBox HBox.hgrow="ALWAYS"/>
+        <Label fx:id="lblSyncStatus" text="🟢" styleClass="label-small"/>
+    </HBox>
+
+    <!-- Formulario de registro -->
+    <VBox styleClass="panel-content" spacing="15">
+        <GridPane hgap="15" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints prefWidth="120"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+                <ColumnConstraints prefWidth="120"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+                <ColumnConstraints prefWidth="120"/>
+            </columnConstraints>
+
+            <!-- ID / Carnet -->
+            <Label text="NIE:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="form-label"/>
+            <TextField fx:id="txtIdPersona" promptText="5060636..." GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+            <!-- Botón Cámara -->
+            <Button fx:id="btnCamara" text="📷 Escanear QR" styleClass="button-primary" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+
+            <!-- Tipo de movimiento -->
+            <Label text="Tipo:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-label"/>
+            <ComboBox fx:id="cmbTipo" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+            <!-- Observaciones -->
+            <Label text="Observaciones:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="form-label"/>
+            <TextArea fx:id="txtObservaciones" wrapText="true" prefRowCount="3" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="2"/>
+
+            <!-- Botón Registrar -->
+            <Button fx:id="btnRegistrar" text="✔ Registrar Movimiento" styleClass="button-primary" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+        </GridPane>
+
+        <!-- Estado del registro -->
+        <Label fx:id="lblEstado" text=" " styleClass="label-info"/>
+    </VBox>
+
+    <!-- Tabla de historial -->
+    <VBox VBox.vgrow="ALWAYS" spacing="10" style="-fx-padding: 15;">
+        <Label text="📊 Historial de Movimientos" styleClass="label-subtitle"/>
+        <TableView fx:id="tableRegistros" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn text="#" prefWidth="40"/>
+                <TableColumn fx:id="colPersona" text="Persona" prefWidth="150"/>
+                <TableColumn fx:id="colID" text="NIE" prefWidth="80"/>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="80"/>
+                <TableColumn fx:id="colFechaHora" text="Fecha y Hora" prefWidth="150"/>
+                <TableColumn fx:id="colTardanza" text="Tardanza" prefWidth="70"/>
+                <TableColumn fx:id="colObservaciones" text="Observaciones" prefWidth="200"/>
+            </columns>
+        </TableView>
+    </VBox>
+</VBox>

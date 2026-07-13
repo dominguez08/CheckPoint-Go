@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21" 
+      xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.mycompany.checkpoint.ui.controllers.DashboardController" 
+      spacing="10" 
+      style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1);" 
+      VBox.vgrow="ALWAYS">
+    
+    <Label style="-fx-font-weight: bold; -fx-text-fill: #1E293B;" text="📊 Asistencia Semanal (Lunes a Viernes)" />
+    
+    <BarChart fx:id="chartAsistenciaSemanal" animated="false" legendVisible="false" prefHeight="250.0" VBox.vgrow="ALWAYS">
+        <xAxis>
+            <CategoryAxis side="BOTTOM" label="Días Laborales" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis side="LEFT" label="Cantidad de Alumnos" tickUnit="1" />
+        </yAxis>
+    </BarChart>
+    
+</VBox>
